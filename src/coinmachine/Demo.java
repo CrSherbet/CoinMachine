@@ -39,7 +39,6 @@ public class Demo {
 		} while( ! machine.isFull() );
 		
 		displayMachineStatus(machine);
-		
 	}
 	
 	/** Show the number of coins and their total value. */
@@ -50,22 +49,6 @@ public class Demo {
 		System.out.printf("Machine contains %d coins and value %d %s\n",
 				machine.getCount(), machine.getBalance(), currency);	
 		if (machine.isFull()) System.out.println("Machine is FULL.");
-	}
-	
-	/**
-	 * Run a console demo.
-	 * @param args not used
-	 */
-	public static void main(String[] args) {
-		final int capacity = 10;  // how many coins the machine can hold
-
-		CoinMachine machine = new CoinMachine( capacity );
-		MachineUI machineUI = new MachineUI( capacity , machine );
-		CoinReceivingUI receivingGUI = new CoinReceivingUI();
-		Demo demo = new Demo();
-		machine.addObserver(machineUI);
-		machine.addObserver(receivingGUI);
-		demo.insertDialog(machine);
 	}
 }
 

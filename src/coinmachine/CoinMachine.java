@@ -66,7 +66,7 @@ public class CoinMachine extends Observable {
 		if (m.getValue() <= 0) throw new IllegalArgumentException("Coin must have positive value");
 		boolean result = coins.add(m);
 		
-		//TODO notify observers
+		// notify observers
 		super.setChanged();
 		super.notifyObservers("insert");
 		return result;
