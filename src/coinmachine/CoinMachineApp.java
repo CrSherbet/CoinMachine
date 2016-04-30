@@ -26,7 +26,7 @@ public class CoinMachineApp {
 		machine.addObserver(machineUI);
 		machine.addObserver(receivingGUI);
 		
-		// show massage in console that you can also insert coin by this way 
+		// show message in console that you can also insert coin by this way 
 		demo.insertDialog(machine);
 	}
 }
