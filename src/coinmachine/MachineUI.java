@@ -27,7 +27,7 @@ public class MachineUI extends JFrame implements Observer {
 	private final CoinMachine machine;
 
 	/**
-	 * Constructors of MachineUI.
+	 * Constructor of MachineUI.
 	 * @param capacity is the number of coins that the machine can hold.
 	 * @param machine is main machine that will use to insert the coin.
 	 */

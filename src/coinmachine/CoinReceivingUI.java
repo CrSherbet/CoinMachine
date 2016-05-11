@@ -23,7 +23,7 @@ public class CoinReceivingUI extends JFrame implements Observer {
 	private CoinMachine machine ;
 	
 	/**
-	 * Constructors of CoinReceivingUI.
+	 * Constructor of CoinReceivingUI.
 	 * @param machine is main machine that will use to insert the coin
 	 */
 	public CoinReceivingUI( CoinMachine machine ){

@@ -16,6 +16,11 @@ public class Coin implements Comparable<Coin>  {
 		this(value, "Baht");
 	}
 	
+	/**
+	 * Constructor of this class.
+	 * @param value is the value of coin.
+	 * @param currency 
+	 */
 	public Coin(int value, String currency) {
 		assert value > 0;  // if not, its YOUR fault
 		if (currency == null) throw new IllegalArgumentException("currency cannot be null");
