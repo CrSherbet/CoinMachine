@@ -81,6 +81,7 @@ public class CoinMachine extends Observable {
 	}
 
 	/**
+	 * Get max number of coins.
 	 * @return the capacity
 	 */
 	public int getCapacity() {

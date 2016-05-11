@@ -8,14 +8,13 @@ import java.util.Observer;
 import java.util.Observable;
 
 /**
- * This class is GUI of MachineUI that will show status of machine, balance, and coin buttons that when 
- * you click the button, it will insert the coin into the machine
+ * The GUI of MachineUI that will show balance , status of machine , and coin buttons which you can press to insert the coin.
  * 
- * @author Warisara
+ * @author Warisara Inprom
  *
  */
 public class MachineUI extends JFrame implements Observer {
-	// create attributes
+	// Attributes
 	private JPanel coinPanel;
 	private JLabel balanceText;
 	private JLabel statusText;
@@ -28,9 +27,9 @@ public class MachineUI extends JFrame implements Observer {
 	private final CoinMachine machine;
 
 	/**
-	 * Constructor of MachineUI
-	 * @param capacity is number of coins that the machine can hold
-	 * @param machine is main machine that will use to insert the coin
+	 * Constructors of MachineUI.
+	 * @param capacity is the number of coins that the machine can hold.
+	 * @param machine is main machine that will use to insert the coin.
 	 */
 	public MachineUI(int capacity, CoinMachine machine) {
 		this.machine = machine;
@@ -40,7 +39,7 @@ public class MachineUI extends JFrame implements Observer {
 	}
 
 	/**
-	 * Run method will set size, show the UI, and set the size of window that you can't change
+	 * Run this GUI.
 	 */
 	public void run() {
 		setSize(450, 210);
@@ -49,7 +48,7 @@ public class MachineUI extends JFrame implements Observer {
 	}
 
 	/**
-	 * create initial component and add to the JFrame
+	 * Initial components of this GUI. 
 	 */
 	public void initComponent() {
 		setLayout(new FlowLayout());
@@ -71,9 +70,9 @@ public class MachineUI extends JFrame implements Observer {
 		tenBaht = new JButton(tenCoin);
 
 		//add action listener for each button
-		oneBaht.addActionListener(new NumGenerator(1));
-		fiveBaht.addActionListener(new NumGenerator(5));
-		tenBaht.addActionListener(new NumGenerator(10));
+		oneBaht.addActionListener(new CoinInserting(1));
+		fiveBaht.addActionListener(new CoinInserting(5));
+		tenBaht.addActionListener(new CoinInserting(10));
 		coinPanel.add(oneBaht);
 		coinPanel.add(fiveBaht);
 		coinPanel.add(tenBaht);
@@ -92,30 +91,31 @@ public class MachineUI extends JFrame implements Observer {
 	}
 
 	/**
-	 * This class is action listener of button, it can pass the value of coin into the action listener
-	 * @author Warisara
-	 *
+	 * This class is action listener of the button.
 	 */
-	public class NumGenerator implements ActionListener {
+	public class CoinInserting implements ActionListener {
 		private int valueOfCoin;
 		/**
-		 * This method will set value of coin that insert to the machine
-		 * @param valueOfCoin
+		 * Set the value of coin that insert to the machine.
+		 * @param valueOfCoin is the value of coin.
 		 */
-		public NumGenerator(final int valueOfCoin) {
+		public CoinInserting(final int valueOfCoin) {
 			this.valueOfCoin = valueOfCoin;
 		}
 		
 		/**
-		 * This method is action of the button
-		 * @param e was not used
+		 * Action of the button.
+		 * @param e was not used.
 		 */
 		public void actionPerformed(ActionEvent e) {
-			//insert the coin into the machine
+			//insert the coin to the machine
 			machine.insert(new Coin(valueOfCoin));
 		}
 	}
 
+	/**
+	 * Update balance and status bar.
+	 */
 	@Override
 	public void update(Observable subject, Object info) {
 		balanceText.setText("Balance: " + machine.getBalance());
@@ -125,8 +125,7 @@ public class MachineUI extends JFrame implements Observer {
 	}
 	
 	/**
-	 * This method will change color of status bar. If it has the amount of coin less than 8, it is green bar.
-	 * On the other hands, if it has the amount of coin equal 8 or 9, it will be orange bar. The last, if it has 10 coins, it will be red bar
+	 * Change color of status bar.
 	 */
 	public void changeColorBar() {
 		if (machine.getCount() < 8)

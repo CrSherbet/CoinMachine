@@ -1,15 +1,14 @@
 package coinmachine;
 
 /**
- * This is the main class for run coin-machine program that show the amount of coin, total balance, 
- * and status of machine
- * 
- * @author Warisara
+ * This is the main class for run coin-machine program.
+ *  
+ * @author Warisara Inprom
  *
  */
 public class CoinMachineApp {
 	/**
-	 * This is main method that create every GUI and objects that will run the program
+	 * This is main method that create all elements of this program.
 	 * @param args was not used
 	 * 
 	 */
@@ -22,11 +21,11 @@ public class CoinMachineApp {
 		CoinReceivingUI receivingGUI = new CoinReceivingUI( machine );
 		Demo demo = new Demo(); 
 		
-		// add observer into machine
+		// add observer to machine
 		machine.addObserver(machineUI);
 		machine.addObserver(receivingGUI);
 		
-		// show message in console that you can also insert coin by this way 
+		// show message in console
 		demo.insertDialog(machine);
 	}
 }
